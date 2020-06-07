@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MokaDEV</title>
+    <style>
+        body {
+            border: 1px solid #ffffff;
+            height: 350px;
+            width: 300px;
+            padding: 0 10px;
+        }
+
+        .row{
+            display: flex;
+            margin: 5px 0;
+        }
+
+        .text{
+            margin: 8px;
+            font-size: 14px;
+            color: #a4a4a4;
+        }
+
+        * {
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        .button {
+            position: relative;
+            top: 50%;
+            width: 74px;
+            height: 36px;
+            
+            overflow: hidden;
+        }
+
+        .button.r,
+        .button.r .layer {
+            border-radius: 100px;
+        }
+
+        .checkbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .knobs {
+            z-index: 2;
+        }
+
+        .layer {
+            width: 100%;
+            background-color: #ebf7fc;
+            transition: 0.3s ease all;
+            z-index: 1;
+        }
+
+        .button-3 .knobs:before {
+            content: 'ON';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 10px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            padding: 9px 4px;
+            background-color: #03A9F4;
+            border-radius: 50%;
+            transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+        }
+
+        .button-3 .checkbox:active+.knobs:before {
+            width: 46px;
+            border-radius: 100px;
+        }
+
+        .button-3 .checkbox:checked:active+.knobs:before {
+            margin-left: -26px;
+        }
+
+        .button-3 .checkbox:checked+.knobs:before {
+            content: 'OFF';
+            left: 42px;
+            background-color: #F44336;
+        }
+
+        .button-3 .checkbox:checked~.layer {
+            background-color: #fcebeb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <div class="row">
+            <div class="button r button-3" id="seenChat">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Chặn 'Seen' Trong Chat</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="typingChat">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Chặn 'Typing' Trong Chat</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="activeChat">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Ẩn Hoạt Động Trong Chat</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="notiBlock">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Đánh Dấu Thông Báo Chưa Đọc</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="seenStory">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Chặn 'Seen' Story</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="typingCmt">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Chặn 'Typing' Trong Bình Luận</span>
+        </div>
+        <div class="row">
+            <div class="button r button-3" id="stopNews">
+                <input type="checkbox" class="checkbox" checked>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+            <span class="text">Tạm Dừng Newsfeed Timeline</span>
+        </div>
+        <div class="row">
+            <p style="color: red; font-size: 15px;">Design And Developer by MokaDEV</p> 
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/xuly.js"></script>
+</body>
+
+</html>
